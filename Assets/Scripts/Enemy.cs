@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    private int damage = 5;
+    private int damage = 1;
     [SerializeField]
     private float speed = 1.5f;
     [SerializeField]
@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
         Swarm();   
     }
 
-    //set enemy values
+    // Set enemy values
     void SetEnemyValues()
     {
         GetComponent<Health>().SetHealth(data.hp, data.hp);
@@ -34,24 +34,37 @@ public class Enemy : MonoBehaviour
         speed = data.speed;
     }
 
-    //method to constantly move enemy towards player
+    // Method to constantly move enemy towards player
     private void Swarm()
     {
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
-    //collision
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        //if collide with player
+        // If collide with player
         if(collider.CompareTag("Player"))
         {
             if(collider.GetComponent<Health>() != null)
             {
-                //on collision deal damage and delete itself
+                // On collision deal damage to player
                 collider.GetComponent<Health>().Damage(damage);
-                this.GetComponent<Health>().Damage(10000);
+                
+                // Destroy the enemy after collision
+                Debug.Log("Enemy destroyed after hitting the player");
+                Destroy(gameObject);  // Immediately destroy the enemy
             }
         }
+
+        // If hit by bullet
+        if(collider.CompareTag("Bullet"))
+        {
+            // Destroy the enemy and the bullet
+            Debug.Log("Enemy destroyed by bullet");
+            Destroy(gameObject);   // Destroys the enemy
+            Destroy(collider.gameObject);   // Destroys the bullet
+        }
     }
+
+
 }
