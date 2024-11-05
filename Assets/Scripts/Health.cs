@@ -10,10 +10,25 @@ public class Health : MonoBehaviour
     
     private int MAX_HEALTH = 100;
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            Heal(10);
+        }
+    }
+
     public void SetHealth(int maxHealth, int health)
     {
         this.MAX_HEALTH = maxHealth;
         this.health = health;
+    }
+
+    private IEnumerator VisualIndicator(Color color)
+    {
+        GetComponent<SpriteRenderer>().color = color;
+        yield return new WaitForSeconds(0.15f);
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     public void Damage(int amount)
@@ -24,6 +39,7 @@ public class Health : MonoBehaviour
         }
 
         this.health -= amount;
+        StartCoroutine(VisualIndicator(Color.red));
 
         if(health <= 0)
         {
@@ -37,7 +53,9 @@ public class Health : MonoBehaviour
         {
             throw new System.ArgumentOutOfRangeException("Negative Healing");
         }
+        
         bool overMaxHealth = health + amount > MAX_HEALTH;
+        StartCoroutine(VisualIndicator(Color.green));
 
         if(overMaxHealth)
         {

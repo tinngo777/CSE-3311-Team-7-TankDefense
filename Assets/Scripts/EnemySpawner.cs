@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(interval);
         //spawns given enemy GameObject at vector ranges (x, y, z)
-        GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-5f, 5), Random.Range(0f, 6f), 0), Quaternion.identity);
+        GameObject newEnemy = Instantiate(enemy, transform.position, Quaternion.identity);
         StartCoroutine(spawnEnemy(interval, enemy));
     }
     
