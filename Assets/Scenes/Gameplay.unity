@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 299819137}
   m_Layer: 0
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,6 +221,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tankBody: {fileID: 1174148145}
+--- !u!1 &995220671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 995220673}
+  - component: {fileID: 995220672}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &995220672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995220671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62429ffcc15c61741bd4d39f9cb900d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goblinPrefab: {fileID: 2347733402368785986, guid: 41f4ccb96fcc1d141b3ea65738acc2f8, type: 3}
+  spawnInterval: 3.5
+--- !u!4 &995220673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995220671}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1174148141
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,11 +279,12 @@ GameObject:
   - component: {fileID: 1174148144}
   - component: {fileID: 1174148143}
   - component: {fileID: 1174148142}
+  - component: {fileID: 1174148148}
   - component: {fileID: 1174148146}
   - component: {fileID: 1174148147}
   m_Layer: 0
   m_Name: Tank
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -375,7 +422,7 @@ Transform:
   m_GameObject: {fileID: 1174148141}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.3498, y: -2.3068, z: 0}
+  m_LocalPosition: {x: -0.01, y: -3.96, z: 0}
   m_LocalScale: {x: 1.267, y: 1.2618, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -410,6 +457,19 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8999003175249173747, guid: 1efad0ed7e84e057cb21301aa5968fd1, type: 3}
   firePoint: {fileID: 1983353765}
   bulletSpeed: 10
+--- !u!114 &1174148148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174148141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d09c969965936f41ad871a41cfb5833, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &1216639366
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,7 +506,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.5127229, g: 0.7830189, b: 0.39520293, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -496,7 +556,7 @@ Transform:
   m_GameObject: {fileID: 1216639366}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0.01999998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -539,3 +599,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 1216639369}
   - {fileID: 1174148145}
+  - {fileID: 995220673}

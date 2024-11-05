@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TankController : MonoBehaviour
 {
+    [SerializeField]
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector2 moveInput;

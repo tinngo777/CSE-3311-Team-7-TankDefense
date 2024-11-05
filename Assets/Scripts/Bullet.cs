@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
         // Destroy the bullet after its lifetime ends
         Destroy(gameObject, lifetime);
     }
-/*
+
     void OnTriggerEnter2D(Collider2D other)
     {
         // Handle collision with enemies
@@ -32,6 +32,5 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject); // Destroy on hitting other objects
         }
-    }
-    */
+    } 
 }
