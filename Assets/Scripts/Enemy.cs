@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+
     [SerializeField]
     private int damage = 5;
     [SerializeField]
@@ -18,6 +19,7 @@ public class Enemy : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         SetEnemyValues();
+        enabled = false;
     }
 
     // swarm is called once per frame
@@ -50,6 +52,19 @@ public class Enemy : MonoBehaviour
                 collider.GetComponent<Health>().Damage(damage);
                 this.GetComponent<Health>().Damage(10000);
             }
+        }
+
+        if (collider.CompareTag("MainCamera"))
+        {
+            enabled = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("MainCamera"))
+        {
+            enabled = false;
         }
     }
 }

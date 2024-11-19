@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour
             // Destroy the bullet after hitting the enemy
             Destroy(gameObject);
         }
-        else if (!other.CompareTag("Player")) // Prevent bullet from destroying when it hits the player
+        else if (!other.CompareTag("Player") & !other.CompareTag("MainCamera")) // Prevent bullet from destroying when it hits the player
         {
             Destroy(gameObject); // Destroy on hitting other objects
         }
