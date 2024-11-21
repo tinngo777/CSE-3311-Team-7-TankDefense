@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float spawnInterval = 3.5f;
     [SerializeField]
-    private int spawnMax = 5;
+    private int spawnMax = 20;
     private int currentSpawn = 0;
     // Start is called before the first frame update
     void Start()
